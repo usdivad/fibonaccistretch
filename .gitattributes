@@ -4,7 +4,6 @@ fibonaccistretch_humannature.ipynb filter=lfs diff=lfs merge=lfs -text
 /Users/usdivad/Documents/tech/fibonacciswing/data/tresillo_rhythm.mp3 filter=lfs diff=lfs merge=lfs -text
 /Users/usdivad/Documents/tech/fibonacciswing/data/tresillo_rhythm_notation.png filter=lfs diff=lfs merge=lfs -text
 /Users/usdivad/Documents/tech/fibonacciswing/data/humannature_30s.mp3 filter=lfs diff=lfs merge=lfs -text
-fibonaccistretch.ipynb filter=lfs diff=lfs merge=lfs -text
 data/figs/output_111_1.png filter=lfs diff=lfs merge=lfs -text
 data/figs/output_30_1.png filter=lfs diff=lfs merge=lfs -text
 data/figs/output_36_0.png filter=lfs diff=lfs merge=lfs -text
