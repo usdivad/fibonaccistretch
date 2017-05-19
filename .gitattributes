@@ -69,3 +69,4 @@ data/out_humannature_90s_stretched.mp3 filter=lfs diff=lfs merge=lfs -text
 data/chanchan_30s.mp3 filter=lfs diff=lfs merge=lfs -text
 data/chanchan_60s.mp3 filter=lfs diff=lfs merge=lfs -text
 data/out_einekleinenachtmusik_30s_swing.mp3 filter=lfs diff=lfs merge=lfs -text
+*.html linguist-generated=true
