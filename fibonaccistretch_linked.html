@@ -12374,7 +12374,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x107cf4cd0&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x10c132b90&gt;]</pre>
 </div>
 
 </div>
@@ -13954,9 +13954,25 @@ Target rhythm:   [1 0 0 0 0 1 0 0 0 0 1 0 0]
         <span class="k">return</span> <span class="n">m</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">euclid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="o">%</span><span class="k">k</span>)
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Greatest common divisor of 8 and 12 is {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Greatest common divisor of 8 and 12 is 4
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14227,35 +14243,6 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="n">euclid</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>15</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -14268,7 +14255,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Euclidean stretch for modifying a single pulse (basically time-stretching subdivisions based on Euclidean rhythms)</span>
@@ -14351,7 +14338,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Modify the track</span>
@@ -14372,7 +14359,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14388,7 +14375,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_111_1.png"
+<img src="data/figs/output_110_1.png"
 >
 </div>
 
@@ -14410,7 +14397,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">overlay_rhythm_onto_audio</span><span class="p">(</span><span class="n">target_rhythm</span><span class="p">,</span> <span class="n">y_modified</span><span class="p">,</span> <span class="n">measure_samples</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
@@ -14424,7 +14411,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14440,7 +14427,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_113_1.png"
+<img src="data/figs/output_112_1.png"
 >
 </div>
 
@@ -14472,7 +14459,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci_stretch_track</span><span class="p">(</span><span class="n">audio_filepath</span><span class="p">,</span>
@@ -14536,7 +14523,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;Human Nature&quot; stretched by a factor of 1 using default parameters</span>
@@ -14553,7 +14540,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[50]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14569,7 +14556,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_118_1.png"
+<img src="data/figs/output_117_1.png"
 >
 </div>
 
@@ -14602,7 +14589,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;Human Nature&quot; stretched by a factor of 2</span>
@@ -14620,7 +14607,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14636,7 +14623,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_121_1.png"
+<img src="data/figs/output_120_1.png"
 >
 </div>
 
@@ -14658,7 +14645,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;Chan Chan&quot; stretched by a factor of -1</span>
@@ -14675,7 +14662,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14691,7 +14678,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_123_1.png"
+<img src="data/figs/output_122_1.png"
 >
 </div>
 
@@ -14724,7 +14711,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;I&#39;m the One&quot; stretched by a factor of 1</span>
@@ -14742,7 +14729,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[54]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14758,7 +14745,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_126_1.png"
+<img src="data/figs/output_125_1.png"
 >
 </div>
 
@@ -14781,7 +14768,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;I&#39;m the One&quot; in 5/4</span>
@@ -14800,7 +14787,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[55]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[54]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14816,7 +14803,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_128_1.png"
+<img src="data/figs/output_127_1.png"
 >
 </div>
 
@@ -14838,7 +14825,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;Eine kleine Nachtmusik&quot; with a swing feel</span>
@@ -14856,7 +14843,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[56]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[55]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14872,7 +14859,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_130_1.png"
+<img src="data/figs/output_129_1.png"
 >
 </div>
 
@@ -14904,7 +14891,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;Chan Chan&quot; in 5/4</span>
@@ -14922,7 +14909,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[57]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[56]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -14938,7 +14925,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_133_1.png"
+<img src="data/figs/output_132_1.png"
 >
 </div>
 
@@ -14960,7 +14947,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># &quot;Pink + White&quot; stretched by a factor of 1</span>
@@ -14991,7 +14978,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[58]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[57]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -15007,7 +14994,7 @@ we subdivide and stretch rhythms   [1 1 1] --&gt; [1 0 1 0 1]
 
 
 <div class="output_png output_subarea ">
-<img src="data/figs/output_135_1.png"
+<img src="data/figs/output_134_1.png"
 >
 </div>
 
