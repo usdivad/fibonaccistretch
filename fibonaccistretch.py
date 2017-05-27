@@ -172,7 +172,7 @@ def calculate_measure_samples(y, beat_samples, beats_per_measure):
 
 """Generating clicks for tresillo rhythm at the proper tempo and start time,
    to overlay onto an audio track"""
-def generate_rhythm_overlay(rhythm, measure_samples, steps_per_measure):
+def generate_rhythm_overlay(rhythm, measure_samples, steps_per_measure, sr):
     # Calculate click interval
     measure_length = measure_samples[1]-measure_samples[0]
     # click_tempo = tempo * (steps_per_measure/float(beats_per_measure))
@@ -209,7 +209,8 @@ def overlay_rhythm_onto_audio(rhythm, audio_samples, measure_samples, sr=44100, 
     # Get overlay data
     pulse_times, step_times, pulse_clicks, step_clicks = generate_rhythm_overlay(rhythm,
                                                                                  measure_samples,
-                                                                                 len(rhythm))
+                                                                                 len(rhythm),
+                                                                                 sr)
     measure_times = librosa.samples_to_time(measure_samples, sr=sr)
     measure_clicks = librosa.clicks(times=measure_times, sr=sr, click_freq=3000.0, length=len(audio_samples))
     
