@@ -242,12 +242,14 @@ def overlay_rhythm_onto_audio(rhythm, audio_samples, measure_samples, sr=44100, 
 # ## Part 4 - Time-stretching audio
 
 # Calculate ratios between pulses for two rhythm sequences
-# NOTE: This assumes that both rhythm sequences have the same number of pulses!
+# NOTE: This assumes that both rhythm sequences have the same number of pulses! Extra pulses in the longer rhythm will be ignored
 def calculate_pulse_ratios(original_rhythm, target_rhythm):
     original_pulse_lengths = calculate_pulse_lengths(original_rhythm)
     target_pulse_lengths = calculate_pulse_lengths(target_rhythm)
     num_pulses = min(len(original_pulse_lengths), len(target_pulse_lengths))
     pulse_ratios = np.array([original_pulse_lengths[i]/float(target_pulse_lengths[i]) for i in range(num_pulses)])
+    #if len(pulse_ratios) < len(original_pulse_lengths):  # Add 0s to pulse ratios if there aren't enough
+    #    pulse_ratios = np.hstack((pulse_ratios, np.zeros(len(original_pulse_lengths) - len(pulse_ratios))))
     return pulse_ratios
 
 
@@ -452,3 +454,60 @@ def fibonacci_stretch_track(audio_filepath,
     # ... or return modified track and measure samples
     else:
         return (y_modified, measure_samples_modified)
+
+
+# ================================
+
+# From other nbs
+
+# Calculate stretch ratios for each original step, for use in real-time
+def calculate_step_stretch_ratios(original_rhythm, target_rhythm):
+    # Original and target pulse lengths
+    original_pulse_lengths = list(calculate_pulse_lengths(original_rhythm))
+    target_pulse_lengths = list(calculate_pulse_lengths(target_rhythm))
+
+    # Pulse ratios
+    # Format pulse ratios so there's one for each step
+    pulse_ratios = list(calculate_pulse_ratios(original_rhythm, target_rhythm))
+    if len(pulse_ratios) < len(original_pulse_lengths):  # Add 0s to pulse ratios if there aren't enough
+        for _ in range(len(original_pulse_lengths) - len(pulse_ratios)):
+            pulse_ratios.append(0.0)
+    assert(len(pulse_ratios) == len(original_pulse_lengths))
+    pulse_ratios_by_step = []
+    for i,pulse_length in enumerate(original_pulse_lengths):
+        for _ in range(pulse_length):
+            pulse_ratios_by_step.append(pulse_ratios[i])
+
+    # Calculate stretch ratios for each original step
+    # Adapted from Euclidean stretch
+    step_stretch_ratios = []
+    for i in range(min(len(original_pulse_lengths), len(target_pulse_lengths))):
+        # Pulse lengths
+        opl = original_pulse_lengths[i]
+        tpl = target_pulse_lengths[i]
+        
+        # Adjust target pulse length if it's too small
+        #if opl > tpl:
+        #    tpl = opl
+        while opl > tpl:
+           tpl *= 2
+
+        # Use steps as original pulse rhythm ("opr")
+        opr = [1] * len(original_rhythm)
+
+        # Generate target pulse rhythm ("tpr") using Bjorklund's algorithm
+        tpr = bjorklund.bjorklund(pulses=opl, steps=tpl)
+        tpr_pulse_lengths = calculate_pulse_lengths(tpr)
+        tpr_pulse_ratios = calculate_pulse_ratios(opr, tpr)
+
+        # Scale the tpr pulse ratios by the corresponding ratio from pulse_ratios_by_step
+        tpr_pulse_ratios *= pulse_ratios_by_step[i]
+
+        step_stretch_ratios.extend(tpr_pulse_ratios)
+        
+    # Multiply by stretch multiplier to make sure the length is the same as original
+    stretch_multiplier = 1.0 / (sum(step_stretch_ratios) / len(original_rhythm))
+    step_stretch_ratios = [r * stretch_multiplier for r in step_stretch_ratios]
+    assert(round(sum(step_stretch_ratios) / len(original_rhythm), 5) == 1)  # Make sure it's *close enough* to original length.
+    
+    return step_stretch_ratios
