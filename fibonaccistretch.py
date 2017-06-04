@@ -478,6 +478,7 @@ def calculate_step_stretch_ratios(original_rhythm, target_rhythm):
     for i,pulse_length in enumerate(original_pulse_lengths):
         for _ in range(pulse_length):
             pulse_ratios_by_step.append(pulse_ratios[i])
+    #print("Pulse ratios by step: {}".format(pulse_ratios_by_step))
 
     # Calculate stretch ratios for each original step
     # Adapted from Euclidean stretch
@@ -505,10 +506,13 @@ def calculate_step_stretch_ratios(original_rhythm, target_rhythm):
         tpr_pulse_ratios *= pulse_ratios_by_step[i]
 
         step_stretch_ratios.extend(tpr_pulse_ratios)
-        
+    #print("Step stretch ratios before multiplier: {}".format(step_stretch_ratios))
+
     # Multiply by stretch multiplier to make sure the length is the same as original
-    stretch_multiplier = 1.0 / (sum(step_stretch_ratios) / len(original_rhythm))
-    step_stretch_ratios = [r * stretch_multiplier for r in step_stretch_ratios]
-    assert(round(sum(step_stretch_ratios) / len(original_rhythm), 5) == 1)  # Make sure it's *close enough* to original length.
-    
+    #stretch_multiplier = 1.0 / (sum(step_stretch_ratios) / len(step_stretch_ratios))
+    #step_stretch_ratios = [r * stretch_multiplier for r in step_stretch_ratios]
+    #assert(round(sum(step_stretch_ratios) / len(step_stretch_ratios), 5) == 1)  # Make sure it's *close enough* to original length.
+    #print("Step stretch ratios after multiplier: {}".format(step_stretch_ratios))
+
+
     return step_stretch_ratios
