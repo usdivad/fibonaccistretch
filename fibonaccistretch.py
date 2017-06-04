@@ -202,9 +202,9 @@ def generate_rhythm_overlay(rhythm, measure_samples, steps_per_measure, sr):
     return (pulse_times, step_times, pulse_clicks, step_clicks)
 
 """Visualizing and hearing the result"""
-def overlay_rhythm_onto_audio(rhythm, audio_samples, measure_samples, sr=44100, click_colors={"measure": "r",
-                                                                                              "pulse": "r",
-                                                                                              "step": "r"}):
+def overlay_rhythm_onto_audio(rhythm, audio_samples, measure_samples, sr=44100, plt_size=(16,4), click_colors={"measure": "r",
+                                                                                                 "pulse": "r",
+                                                                                                 "step": "r"}):
     
     # Get overlay data
     pulse_times, step_times, pulse_clicks, step_clicks = generate_rhythm_overlay(rhythm,
@@ -219,7 +219,7 @@ def overlay_rhythm_onto_audio(rhythm, audio_samples, measure_samples, sr=44100, 
     length_samples = min(available_lengths)
     
     # Plot original waveform
-    plt.figure(figsize=(16, 4))
+    plt.figure(figsize=plt_size)
     librosa.display.waveplot(audio_samples, sr=sr, alpha=0.5)
     
     # Plot rhythm clicks
@@ -417,6 +417,7 @@ def fibonacci_stretch_track(audio_filepath,
                             beats_per_measure=4,
                             hop_length=1024,
                             overlay_clicks=False,
+                            plt_size=(16,4),
                             render_track=True):    
     # Load input audio
     y, sr = librosa.load(audio_filepath, sr=sr)
@@ -437,14 +438,17 @@ def fibonacci_stretch_track(audio_filepath,
                                                         original_rhythm, target_rhythm,
                                                         stretch_method="euclidean")
 
-    # Render the modified track...
+    # Render the track and any plots
+    rendered_track = ipd.Audio(y_modified, rate=sr)
+    if overlay_clicks:
+        rendered_track = overlay_rhythm_onto_audio(target_rhythm, y_modified, measure_samples_modified, sr, plt_size=plt_size)
+    else:
+        plt.figure(figsize=plt_size)
+        librosa.display.waveplot(y_modified, sr=sr)
+
+    # Return rendered track...
     if render_track:
-        if overlay_clicks:
-            return overlay_rhythm_onto_audio(target_rhythm, y_modified, measure_samples_modified, sr)
-        else:
-            plt.figure(figsize=(16,4))
-            librosa.display.waveplot(y_modified, sr=sr)
-            return ipd.Audio(y_modified, rate=sr)
+        return rendered_track
     # ... or return modified track and measure samples
     else:
         return (y_modified, measure_samples_modified)
