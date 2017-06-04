@@ -61,9 +61,9 @@ def generate_rhythm_times(rhythm, interval):
 
 # Function to calculate pulse lengths based on rhythm patterns
 def calculate_pulse_lengths(rhythm):
-    pulse_lengths = np.array(([i for i,p in enumerate(rhythm) if p > 0]))
-    pulse_lengths = np.hstack((pulse_lengths, len(rhythm)))
-    pulse_lengths = np.array([pulse_lengths[i+1] - pulse_lengths[i] for i in range(len(pulse_lengths) - 1)])
+    pulse_indices = np.array(([i for i,p in enumerate(rhythm) if p > 0]))
+    pulse_indices = np.hstack((pulse_indices, len(rhythm)))
+    pulse_lengths = np.array([pulse_indices[i+1] - pulse_indices[i] for i in range(len(pulse_indices) - 1)])
     
     return pulse_lengths
 
