@@ -467,12 +467,13 @@ def calculate_step_stretch_ratios(original_rhythm, target_rhythm):
     target_pulse_lengths = list(calculate_pulse_lengths(target_rhythm))
 
     # Pulse ratios
-    # Format pulse ratios so there's one for each step
     pulse_ratios = list(calculate_pulse_ratios(original_rhythm, target_rhythm))
     if len(pulse_ratios) < len(original_pulse_lengths):  # Add 0s to pulse ratios if there aren't enough
         for _ in range(len(original_pulse_lengths) - len(pulse_ratios)):
             pulse_ratios.append(0.0)
     assert(len(pulse_ratios) == len(original_pulse_lengths))
+
+    # Format pulse ratios so there's one for each step
     pulse_ratios_by_step = []
     for i,pulse_length in enumerate(original_pulse_lengths):
         for _ in range(pulse_length):
