@@ -2,7 +2,7 @@
 
 Stretch the rhythm of an audio track along the Fibonacci sequence.
 
-This README pertains to the `fibonaccistretch` Python module; for information about the Groovinator VST/AU plugin, go [here](plugin/Groovinator).
+This README pertains to the `fibonaccistretch` Python module; for information about the Groovinator VST/AU plugin, please see [this repository](https://github.com/usdivad/Groovinator).
 
 ## Examples
 http://usdivad.com/fibonaccistretch/examples.html
