@@ -509,9 +509,9 @@ def calculate_step_stretch_ratios(original_rhythm, target_rhythm):
     #print("Step stretch ratios before multiplier: {}".format(step_stretch_ratios))
 
     # Multiply by stretch multiplier to make sure the length is the same as original
-    #stretch_multiplier = 1.0 / (sum(step_stretch_ratios) / len(step_stretch_ratios))
-    #step_stretch_ratios = [r * stretch_multiplier for r in step_stretch_ratios]
-    #assert(round(sum(step_stretch_ratios) / len(step_stretch_ratios), 5) == 1)  # Make sure it's *close enough* to original length.
+    stretch_multiplier = 1.0 / (sum(step_stretch_ratios) / len(step_stretch_ratios))
+    step_stretch_ratios = [r * stretch_multiplier for r in step_stretch_ratios]
+    assert(round(sum(step_stretch_ratios) / len(step_stretch_ratios), 5) == 1)  # Make sure it's *close enough* to original length.
     #print("Step stretch ratios after multiplier: {}".format(step_stretch_ratios))
 
 

@@ -23,3 +23,5 @@ Take a listen to the [result](data/out_humannature_90s_stretched.mp3).
 
 ## More info
 See [fibonaccistretch.ipynb](nbs/fibonaccistretch.ipynb) for a more detailed writeup and implementation (note: the outputs are cleared, so to see figures and listen to audio you'll need to run the notebook using Jupyter). A static HTML version is also available [here](http://usdivad.com/fibonaccistretch).
+
+Presented at the [2017 AES Workshop on Intelligent Music Production](http://www.semanticaudio.co.uk/events/wimp2017/).
